@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import CurrencyFormat from './componets/CurrencyFormat';
+import CurrencyFormat from '../../utils/CurrencyFormat';
 
 const ExpenseCalculation = ({ itemsTotal, expensesTotal }) => {
   return (

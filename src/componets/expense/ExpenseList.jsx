@@ -1,13 +1,17 @@
-import CurrencyFormat from './componets/CurrencyFormat';
-import Modal from './componets/Modal';
-import ModalButton from './componets/ModalButton';
-import axios from 'axios';
+import CurrencyFormat from '../../utils/CurrencyFormat';
+import Modal from '../modal/Modal';
+import ModalButton from '../modal/ModalButton';
 
 import { MdOutlineDeleteOutline } from 'react-icons/md';
+import { LuEye } from 'react-icons/lu';
 import { CiEdit } from 'react-icons/ci';
 
-import { useState } from 'react';
-const ExpenseList = ({ deleteExpense, expenses }) => {
+import { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import ExpenseContext from '../../context/ExpenseContext';
+const ExpenseList = ({ deleteExpense }) => {
+  const { expenses, loading } = useContext(ExpenseContext);
+
   const editExpense = (id) => {
     let editExpenseConfirm = confirm(
       'Are you sure you want to edit this expense ?'
@@ -67,7 +71,14 @@ const ExpenseList = ({ deleteExpense, expenses }) => {
                   >
                     <CiEdit />
                   </button>
-                  <ModalButton onOpen={openModal} />
+
+                  <Link
+                    to={`/expense/${expense.id}`}
+                    className="btn btn-outline btn-info leading-relaxed text-xl"
+                  >
+                    {' '}
+                    <LuEye />
+                  </Link>
                   <button
                     className="btn btn-outline btn-error leading-relaxed text-xl"
                     onClick={() => deleteExpense(expense.id)}

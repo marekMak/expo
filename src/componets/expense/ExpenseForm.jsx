@@ -39,6 +39,7 @@ const ExpenseForm = ({ addExpense }) => {
         <input
           type="number"
           name="amount"
+          min={0}
           value={newExpense.amount}
           onChange={handleChange}
           placeholder="Enter expense amount"
@@ -47,6 +48,7 @@ const ExpenseForm = ({ addExpense }) => {
         <input
           type="number"
           name="price"
+          min={0}
           value={newExpense.price}
           onChange={handleChange}
           placeholder="Enter expense price"

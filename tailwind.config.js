@@ -6,6 +6,10 @@ export default {
       fontFamily: {
         amsterdam: ['New Amsterdam', 'sans-serif'],
       },
+      colors: {
+        baseTeal: '#00b29f',
+        baseGreen: '#24ce70',
+      },
     },
   },
   plugins: [require('daisyui')],
